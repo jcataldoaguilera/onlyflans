@@ -1,9 +1,5 @@
 # Proyecto - Creación de sitio web para una PYME de venta de pasteles y postres
 ## Descripción
-Ya has leído y te has interiorizado en los aspectos principales de Django, es hora de poner en
-práctica todo lo aprendido en la creación de tu primer proyecto, el cual consistirá en un sitio
-web para una PYME de venta de pasteles y postres llamada OnlyFlans.
-
 
 OnlyFlans es una empresa enfocada en el mundo de la pastelería y los postres, en especial
 en la venta de flan(de ahí su nombre), nace en 2021 en santiago de chile como una empresa
