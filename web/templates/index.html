@@ -1,32 +1,18 @@
 {% extends "base.html" %}
 {% block 'content' %}
-    {% load static %}
-    <div class="container py-4">
-        <div class="row">
-            <div class="col-12 col-md-4">
-                <div class="card" style="width: 18rem;">
-                    <img src="{% static 'img/flan-01.jpg' %}" class="card-img-top" alt="flan-01">
-                    <div class="card-body">
-                        <p class="card-text">Flan 01</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-md-4">
-                <div class="card" style="width: 18rem;">
-                    <img src="{% static 'img/flan-01.jpg' %}" class="card-img-top" alt="flan-01">
-                    <div class="card-body">
-                        <p class="card-text">Flan 01</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-md-4">
-                <div class="card" style="width: 18rem;">
-                    <img src="{% static 'img/flan-01.jpg' %}" class="card-img-top" alt="flan-01">
-                    <div class="card-body">
-                        <p class="card-text">Flan 01</p>
-                    </div>
+<div class="container py-4">
+    <div class="row">
+        {% for flan in flanes_publicos %}
+        <div class="col-12 col-md-4 py-2">
+            <div class="card" style="width: 18rem;">
+                <img src="{{flan.image_url}}" class="card-img-top" alt="{{flan.slug}}" style="height: 11em;">
+                <div class="card-body">
+                    <h5 class="card-title">{{flan.name}}</h5>
+                    <p class="card-text">{{flan.description}}</p>
                 </div>
             </div>
         </div>
+        {% endfor %}
     </div>
+</div>
 {% endblock 'content' %}

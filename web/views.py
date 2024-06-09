@@ -1,11 +1,16 @@
 from django.shortcuts import render
+from .models import Flan
 
 # Create your views here.
 def index(request):
-    return render(request,"index.html",{})
+    flanes_publicos = Flan.objects.filter(is_private=False)
+    pub = { 'flanes_publicos' : flanes_publicos }
+    return render(request,"index.html",pub)
 
 def acerca(request):
     return render(request,"about.html",{})
 
 def bienvenido(request):
-    return render(request,"welcome.html",{})
+    flanes_privados = Flan.objects.filter(is_private=True)
+    priv = { 'flanes_privados' : flanes_privados }
+    return render(request,"welcome.html",priv)
