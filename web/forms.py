@@ -10,3 +10,4 @@ class ContactFormModelForm(forms.ModelForm):
     class Meta:
         model = ContactForm
         fields = ['customer_email', 'customer_name', 'message']
+        labels = {'customer_name' : 'Nombre', 'customer_email' : 'Correo', 'message' : 'Mensaje'}

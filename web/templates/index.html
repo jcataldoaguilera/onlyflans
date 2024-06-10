@@ -4,8 +4,8 @@
     <div class="row">
         {% for flan in flanes_publicos %}
         <div class="col-12 col-md-4 py-2">
-            <div class="card" style="width: 18rem;">
-                <img src="{{flan.image_url}}" class="card-img-top" alt="{{flan.slug}}" style="height: 11em;">
+            <div class="card">
+                <img src="{{flan.image_url}}" class="card-img-top" alt="{{flan.slug}}" style="height: 15em;">
                 <div class="card-body">
                     <h5 class="card-title">{{flan.name}}</h5>
                     <p class="card-text">{{flan.description}}</p>
