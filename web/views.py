@@ -1,9 +1,9 @@
 from django.shortcuts import render
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect as redirect
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth import logout
+from django.contrib.auth import logout, login
 from .models import Flan, ContactForm
-from .forms import ContactFormModelForm
+from .forms import ContactFormModelForm,RegistrationForm
 
 # Create your views here.
 def index(request):
@@ -25,10 +25,21 @@ def contacto(request):
         form = ContactFormModelForm(request.POST)
         if form.is_valid():
             contact_form = form.save()
-            return HttpResponseRedirect('/exito')
+            return redirect('/exito')
     else:
         form = ContactFormModelForm()
-    return render(request,"contact.html",{'form' : form})
+    return render(request,"contact.html",{'contact' : form})
 
 def exito(request):
     return render(request,"success.html",{})
+
+def sign_up(request):
+    if request.method == 'POST':
+        form = RegistrationForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            login(request, user)
+        return redirect('/bienvenido')
+    else:
+        form = RegistrationForm()
+    return render(request, 'registration/register.html', {'registration' : form})
